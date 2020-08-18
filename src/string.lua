@@ -8,3 +8,8 @@ html = [[
 </html>
 ]]
 print(html)
+
+a = 'BABA'
+b = "BABA"
+print(a)
+print(b)
