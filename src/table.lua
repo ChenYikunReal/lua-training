@@ -29,3 +29,35 @@ end
 table1["key"] = "val"
 print(table1["key"])
 print(table1["none"])
+
+-- 移除引用
+table1 = nil
+
+-- 简单的 table
+table4 = {}
+print("table4 的类型是 ",type(table4))
+
+table4[1]= "Lua"
+table4["wow"] = "修改前"
+print("table4 索引为 1 的元素是 ", table4[1])
+print("table4 索引为 wow 的元素是 ", table4["wow"])
+
+-- table5和table4的是指同一个 table
+table5 = table4
+
+print("table5 索引为 1 的元素是 ", table5[1])
+print("table4 索引为 wow 的元素是 ", table5["wow"])
+
+table5["wow"] = "修改后"
+
+print("table4 索引为 wow 的元素是 ", table4["wow"])
+
+-- 释放变量
+table5 = nil
+print("table5 是 ", table5)
+
+-- table4 仍然可以访问
+print("table4 索引为 wow 的元素是 ", table4["wow"])
+
+table4 = nil
+print("table4 是 ", table4)
