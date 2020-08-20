@@ -105,3 +105,90 @@ print("\n第四次截取", string.format("%q", fourth_sub))
 | %g(%G) | 接受一个数字并将其转化为%e(%E, 对应%G)及%f中较短的一种格式|
 | %q | 接受一个字符串并将其转化为可安全被Lua编译器读入的格式|
 | %s | 接受一个字符串并按照给定的参数格式化该字符串|
+
+## Lua表对应的操作符
+|模式 | 描述|
+|:---:|:---:|
+|\_\_add | 对应的运算符 '+'.
+|\_\_sub | 对应的运算符 '-'.
+|\_\_mul | 对应的运算符 '*'.
+|\_\_div | 对应的运算符 '/'.
+|\_\_mod | 对应的运算符 '%'.
+|\_\_unm | 对应的运算符 '-'.
+|\_\_concat | 对应的运算符 '..'.
+|\_\_eq | 对应的运算符 '=='.
+|\_\_lt | 对应的运算符 '<'.
+|\_\_le | 对应的运算符 '<='.
+
+## Lua模块与包
+[学习Lua模块与包](https://www.runoob.com/lua/lua-modules-packages.html)
+
+## Lua文件操作
+打开文件语句：
+```txt
+file = io.open (filename [, mode])
+```
+
+关于mode参数：
+
+|模式 | 描述|
+|:---:|:---:|
+|r | 以只读方式打开文件，该文件必须存在
+|w | 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件
+|a | 以附加的方式打开只写文件 若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先的内容会被保留 (EOF符保留)
+|r+  | 以可读写方式打开文件，该文件必须存在。
+|w+  | 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件
+|a+  | 与a类似，但此文件可读可写
+|b  | 二进制模式，如果文件是二进制文件，可以加上b
+|+  | 号表示对文件既可以读也可以写
+
+io.read()参数：
+
+|模式 | 描述 | 例子|
+|:---:|:---:|:---:|
+|"*n" | 读取一个数字并返回它|`file.read("*n")`
+|"*a" | 从当前位置读取整个文件|`file.read("*a")`
+|"*l"（默认） | 读取下一行，在文件尾 (EOF) 处返回 nil|`file.read("*l")`
+|number | 返回一个指定字符个数的字符串，或在 EOF 时返回 nil|`file.read(5)`
+
+## Lua调试函数
+![在这里插入图片描述](https://github.com/ChenYikunReal/lua_training/blob/master/images/debug-function.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70)
+
+## Lua数据库访问格式
+```lua
+require "luasql.mysql"
+
+--- 创建环境对象
+env = luasql.mysql()
+
+--- 连接数据库
+conn = env:connect("数据库名","用户名","密码","IP地址",端口)
+
+--- 设置数据库的编码格式
+conn:execute"SET NAMES UTF8"
+
+--- 执行数据库操作
+cur = conn:execute("select * from role")
+
+row = cur:fetch({},"a")
+
+--- 文件对象的创建
+file = io.open("role.txt","w+");
+
+while row do
+    var = string.format("%d %s\n", row.id, row.name)
+
+    print(var)
+
+    file:write(var)
+
+    row = cur:fetch(row,"a")
+end
+
+--- 关闭文件对象
+file:close()
+--- 关闭数据库连接
+conn:close()
+--- 关闭数据库环境
+env:close()
+```
