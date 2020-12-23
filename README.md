@@ -2,7 +2,7 @@
 
 Lua是一种轻量小巧的脚本语言，用标准C语言编写并以源代码形式开放，其设计目的是为了嵌入应用程序中，从而为应用程序提供灵活的扩展和定制功能。
 
-![在这里插入图片描述](https://github.com/ChenYikunReal/lua_training/blob/master/images/lua-bits.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70)
+![](images/lua-bits.jpg)
 
 
 IDEA插件下载地址：
@@ -62,10 +62,10 @@ Lua变量默认是全局的，变量被赋值为`nil`时，相当于删除了这
 - `长度获取符`(字符串或表长) => `#` => `#"Hello"`
 
 ## Lua转义字符
-![在这里插入图片描述](https://github.com/ChenYikunReal/lua_training/blob/master/images/转义字符.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70)
+![](images/转义字符.png)
 
 ## Lua字符串函数
-![在这里插入图片描述](https://github.com/ChenYikunReal/lua_training/blob/master/images/string-function.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70)
+![](images/string-function.png)
 <br/><br/>
 ```lua
 --- s为字符串 i为起始位置
@@ -152,7 +152,7 @@ io.read()参数：
 |number | 返回一个指定字符个数的字符串，或在 EOF 时返回 nil|`file.read(5)`
 
 ## Lua调试函数
-![在这里插入图片描述](https://github.com/ChenYikunReal/lua_training/blob/master/images/debug-function.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzg5NjMxOA==,size_16,color_FFFFFF,t_70)
+![](images/debug-function.png)
 
 ## Lua数据库访问格式
 ```lua
